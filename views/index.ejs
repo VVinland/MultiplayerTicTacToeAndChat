@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiplayerTicTacToe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../frontend/css/style.css">
+</head>
+
+<body>
+    <div id="header">
+
+        <div id="widthNumberOfMovesMade">
+            <ul id="numberOfMovesMade">
+            </ul>
+        </div>
+
+        <ul id="navbar">
+            <li><a src="#">Игровое поле</a></li>
+            <li><a src="#">Рейтинг</a></li>
+            <li><a src="#">Активные игроки</a></li>
+            <li><a src="#">История игр</a></li>
+            <li><a src="#">Список игроков</a></li>
+        </ul>
+
+        <img src="../frontend/images/exit.jpg" alt="logo">
+
+    </div>
+
+    <div id="content">
+
+        <div id="playersWindow">
+            <ul id="players">Игроки
+                <li id="playerOne"></li>
+                <li id="playerTwo"></li>
+            </ul>
+        </div>
+
+        <div id="gameField">
+
+            <div id="timer">
+                <div id="time"></div>
+            </div>
+
+            <div id="gameBoard">
+                <div id="x0y0" type="button" onclick="turn(0,0)"></div>
+                <div id="x0y1" type="button" onclick="turn(0,1)"></div>
+                <div id="x0y2" type="button" onclick="turn(0,2)"></div>
+                <div id="x1y0" type="button" onclick="turn(1,0)"></div>
+                <div id="x1y1" type="button" onclick="turn(1,1)"></div>
+                <div id="x1y2" type="button" onclick="turn(1,2)"></div>
+                <div id="x2y0" type="button" onclick="turn(2,0)"></div>
+                <div id="x2y1" type="button" onclick="turn(2,1)"></div>
+                <div id="x2y2" type="button" onclick="turn(2,2)"></div>
+            </div>
+
+            <div id="currentTurn" class="hide"></div>
+
+            <button id="newGame" class="hide" type="sumbit">Новая игра</button>
+
+        </div>
+
+
+        <form id="formChat" action="">
+            <ul id="messages">
+
+            </ul>
+            <input type="text" id="inputChat" name="chat" autocomplete="off" value="">
+            <button type="submit" id="sendMessage">Отправ</button>
+        </form>
+
+
+    </div>
+
+    <div id="result" class="hide">
+        <div id='resultMath' action="#">
+            <div id="winnerContainer">
+                <div id="winnerId">Победитель</div>
+            </div>
+            <button id="restartGame" onclick="restartGame()"> restartGame </button>
+        </div>
+    </div>
+
+    <form id="crossPlayer" action="#" class="hide">
+        <div class="paramsGame">
+            <div class="namePlayers">
+                Введите свой никнейм
+                <input type="text" name="nameCrossPlayer" autocomplete="off" placeholder="Введите никнейм...">
+            </div>
+            <div id="switchTime">
+                Установите время
+                <input type="text" name="controlTime" value="3">
+                (в минутах)
+            </div>
+            <button type="submit" class="paramsPlayers">Вперёд</button>
+        </div>
+    </form>
+
+    <form id="circlePlayer" action="#" class="hide">
+        <div class="paramsGame">
+            <div class="namePlayers">
+                Введите свой никнейм
+                <input type="text" name="nameCirclePlayer" autocomplete="off" placeholder="Введите никнейм...">
+            </div>
+            <button type="submit" class="paramsPlayers">Вперёд</button>
+        </div>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../frontend/scripts/index.js"></script>
+    <script src="../frontend/scripts/libs/moment.js"></script>
+    <script src="../frontend/scripts/libs/moment-with-locales.min.js"></script>
+
+</body>
+
+</html>
